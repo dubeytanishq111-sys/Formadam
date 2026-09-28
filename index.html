@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Simi ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:white;
+  min-height:100vh;
+  background:#080812 url("Screenshot_20260530-150856_Instagram.jpg") center/cover fixed;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(5,5,18,.72);
+  z-index:-1;
+}
+.page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:25px 15px;
+}
+.card{
+  width:100%;
+  max-width:700px;
+  background:rgba(15,15,30,.88);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:25px;
+  padding:28px 20px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.hidden{display:none!important}
+h1{font-size:32px;margin:10px 0 15px}
+h2{font-size:25px}
+p{line-height:1.7;font-size:17px}
+button{
+  border:0;
+  border-radius:30px;
+  padding:13px 24px;
+  margin:8px;
+  font-size:16px;
+  cursor:pointer;
+  background:#fff;
+  color:#111;
+  font-weight:bold;
+}
+input{
+  width:90%;
+  max-width:300px;
+  padding:14px;
+  border-radius:15px;
+  border:0;
+  text-align:center;
+  font-size:17px;
+  margin:10px;
+}
+.timer{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+.time{
+  background:rgba(255,255,255,.12);
+  border-radius:15px;
+  padding:12px;
+  min-width:70px;
+}
+.time b{display:block;font-size:22px}
+.memory{
+  margin:25px 0;
+}
+.memory img{
+  width:100%;
+  max-height:430px;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 5px 25px rgba(0,0,0,.5);
+}
+.caption{
+  font-size:18px;
+  margin:12px 5px 0;
+}
+.note{
+  background:rgba(255,255,255,.08);
+  padding:20px;
+  border-radius:20px;
+  text-align:left;
+}
+.option{
+  display:block;
+  width:90%;
+  max-width:450px;
+  margin:10px auto;
+}
+#result{
+  font-size:22px;
+  margin:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- COUNTDOWN -->
+<section id="countdownPage" class="page">
+<div class="card">
+  <div style="font-size:55px">🎂✨</div>
+  <h1>Something Special Is Waiting...</h1>
+  <p>29 September ko tumhare liye ek chhota sa surprise hai, Simi ❤️</p>
+
+  <div class="timer">
+    <div class="time"><b id="days">00</b>Days</div>
+    <div class="time"><b id="hours">00</b>Hours</div>
+    <div class="time"><b id="minutes">00</b>Minutes</div>
+    <div class="time"><b id="seconds">00</b>Seconds</div>
+  </div>
+
+  <p>⏳ Wait for it...</p>
+</div>
+</section>
+
+<!-- PASSWORD -->
+<section id="lockPage" class="page hidden">
+<div class="card">
+  <div style="font-size:60px">🔐</div>
+  <h1>My Favorite Word ❤️</h1>
+  <p>Surprise unlock karne ke liye password dalo 😌</p>
+
+  <input id="password" type="password" placeholder="Enter password">
+  <br>
+  <button onclick="unlock()">Unlock 💗</button>
+  <p id="wrong" style="color:#ff9b9b"></p>
+</div>
+</section>
+
+<!-- HOME -->
+<section id="homePage" class="page hidden">
+<div class="card">
+
+  <div style="font-size:55px">🎉🎂💗</div>
+  <h1>HAPPY BIRTHDAY<br>Meri Madam Jii ❤️</h1>
+
+  <p>
+    Aaj ka din thoda special hai...<br>
+    kyunki tum special ho. ✨
+  </p>
+
+  <button onclick="showPage('memoriesPage')">Our Memories 📸</button>
+  <button onclick="showPage('notePage')">Ek Baat Bolu? 💌</button>
+  <button onclick="showPage('quizPage')">Little Questions ❓</button>
+  <button onclick="showPage('voicePage')">Voice Note 🎙️</button>
+
+</div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memoriesPage" class="page hidden">
+<div class="card">
+<h1>Our Memories 📸❤️</h1>
+
+<div class="memory">
+<img src="Screenshot_20260927-093301_Gallery.jpg">
+<p class="caption">Some moments just stay special. ❤️</p>
+</div>
+
+<div class="memory">
+<img src="file_00000000d1a88211af9fac6ce2984f65.png">
+<p class="caption">A memory worth keeping forever. ✨</p>
+</div>
+
+<div class="memory">
+<img src="Screenshot_20260805-155434_Instagram.jpg">
+<p class="caption">One more beautiful memory. 🌸</p>
+</div>
+
+<div class="memory">
+<img src="Screenshot_20260902-084446_Instagram.jpg">
+<p class="caption">And another one to smile about. 😊</p>
+</div>
+
+<button onclick="showPage('homePage')">← Back</button>
+</div>
+</section>
+
+<!-- FUNNY NOTE -->
+<section id="notePage" class="page hidden">
+<div class="card">
+<h1>Ek Chhoti Si Baat 😅❤️</h1>
+
+<div class="note">
+<p>
+Main thoda sa bhagyahin hoon 😅😂
+</p>
+
+<p>
+Bhagyashali toh ye log hain jo tumse jude rehte hain… 
+jaise <b>mirror</b> — sabse zyada toh iska bhagya hai 😭😂
+</p>
+
+<p>
+Phir tumhare <b>kapde</b>, tumhari <b>jhaadu</b> aur woh saara
+<b>kachra</b> jo tumhare haathon se saaf hota hai…
+inka bhi bhagya dekho! 😭😂
+</p>
+
+<p>
+Aur <b>lip gloss, balm, ye chukandar, soap</b> 😅
+aur haan, <b>brush</b> bhi!
+</p>
+
+<p>
+In sabka bhagya toh mujhse bhi zyada achha hai…
+kyunki inhe roz tumhara saath milta hai. 😂❤️
+</p>
+
+<p>
+Bas isi baat ka thoda sa afsos hai mujhe…<br>
+<b>main thoda bhagyahin jo hoon 😅❤️</b>
+</p>
+</div>
+
+<button onclick="showPage('homePage')">← Back</button>
+</div>
+</section>
+
+<!-- VOICE -->
+<section id="voicePage" class="page hidden">
+<div class="card">
+<h1>For You 🎙️❤️</h1>
+<p>Ek voice note sirf tumhare liye.</p>
+
+<audio id="voice" controls style="width:90%">
+  <source src="Simi birthday.m4a" type="audio/mp4">
+  Your browser does not support audio.
+</audio>
+
+<br><br>
+<button onclick="document.getElementById('voice').play()">▶ Play Voice Note</button>
+<br>
+<button onclick="showPage('homePage')">← Back</button>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section id="quizPage" class="page hidden">
+<div class="card">
+<h1>Thode Se Questions 😌❤️</h1>
+
+<div id="q1">
+<h2>1. Tumhari smile ka sabse bada fan kaun hai? 😏</h2>
+<button class="option" onclick="answer(1,'wrong')">Mirror 😭</button>
+<button class="option" onclick="answer(1,'correct')">Main 😌❤️</button>
+<button class="option" onclick="answer(1,'wrong')">Tumhara brush 😂</button>
+</div>
+
+<div id="q2" class="hidden">
+<h2>2. Sabse lucky cheez kaun hai? 😂</h2>
+<button class="option" onclick="answer(2,'wrong')">Main</button>
+<button class="option" onclick="answer(2,'correct')">Tumhare aas-paas ki cheezein 😭❤️</button>
+<button class="option" onclick="answer(2,'wrong')">Kachra 😂</button>
+</div>
+
+<div id="q3" class="hidden">
+<h2>3. Birthday girl ko kya milna chahiye? 🎁</h2>
+<button class="option" onclick="answer(3,'correct')">Lots of happiness ❤️</button>
+<button class="option" onclick="answer(3,'wrong')">Homework 😭</button>
+<button class="option" onclick="answer(3,'wrong')">Extra cleaning 😂</button>
+</div>
+
+<div id="result"></div>
+
+<button onclick="showPage('homePage')">← Back</button>
+</div>
+</section>
+
+<script>
+const birthday = new Date("2026-09-29T00:00:00+05:30").getTime();
+
+function updateTimer(){
+  const now = new Date().getTime();
+  const distance = birthday-now;
+
+  if(distance <= 0){
+    document.getElementById("countdownPage").classList.add("hidden");
+    document.getElementById("lockPage").classList.remove("hidden");
+    return;
+  }
+
+  document.getElementById("days").innerText =
+    Math.floor(distance/(1000*60*60*24));
+
+  document.getElementById("hours").innerText =
+    Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+  document.getElementById("minutes").innerText =
+    Math.floor((distance%(1000*60*60))/(1000*60));
+
+  document.getElementById("seconds").innerText =
+    Math.floor((distance%(1000*60))/1000);
+}
+
+setInterval(updateTimer,1000);
+updateTimer();
+
+function unlock(){
+  const pass=document.getElementById("password").value;
+
+  if(pass.toLowerCase()==="simi"){
+    document.getElementById("lockPage").classList.add("hidden");
+    document.getElementById("homePage").classList.remove("hidden");
+  }else{
+    document.getElementById("wrong").innerText="Password galat hai 😝❤️";
+  }
+}
+
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
+
+let currentQuestion=1;
+
+function answer(q,type){
+  const result=document.getElementById("result");
+
+  if(type==="correct"){
+    result.innerHTML="🎁😘 Correct! Tumhe ek special gift milta hai! ❤️";
+  }else{
+    result.innerHTML="😂 Oops! Ek baar aur socho...";
+    return;
+  }
+
+  if(q<3){
+    document.getElementById("q"+q).classList.add("hidden");
+    document.getElementById("q"+(q+1)).classList.remove("hidden");
+  }else{
+    result.innerHTML="🎁😘 All correct! Special birthday hug & happiness unlocked! ❤️✨";
+  }
+}
+</script>
+
+</body>
+  </html>
